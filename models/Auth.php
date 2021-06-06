@@ -34,6 +34,10 @@ class Auth {
         if($user) {
 
             if(password_verify($password, $user->password)) {
+
+                echo "Entrou na senha";
+                exit;
+
                 $token = md5(time().rand(0, 9999));
 
                 $_SESSION['token'] = $token;
@@ -70,6 +74,7 @@ class Auth {
         $userDao->insert($newUser);
 
         $_SESSION['token'] = $token;
+
 
     }
 
